@@ -273,8 +273,7 @@ async function getMeta(url,type,id) {
     if(type === "movie"|| type === "series"){
         meta ={
              id: obj.idPrefix + streamID || "",
-             //id: getMeta.data.info.tmdb_id === undefined ? obj.idPrefix + streamID : "tmdb:"+getMeta.data.info.tmdb_id, // 
-"tmdb:"+getMeta.data.info.tmdb_id || obj.idPrefix + streamID || "",
+             //id: getMeta.data.info.tmdb_id === undefined ? obj.idPrefix + streamID : "tmdb:"+getMeta.data.info.tmdb_id,
             type,
             name: getMeta.data.info.name === undefined ? "" : getMeta.data.info.name,
             poster: getMeta.data.info.cover_big || "",
