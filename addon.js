@@ -18,8 +18,7 @@ function getUserData(userConf) {
     if(typeof retrievedData === "object"){
         domainName = retrievedData.BaseURL.split("/")[2].split(":")[0] || "unknown"
         baseURL = retrievedData.BaseURL
-        idPrefix = domainName.charAt(0) + domainName.substr(Math.ceil(domainName.length / 2 - 1), domainName.length % 2 === 0 ? 2 : 1) + 
-domainName.charAt(domainName.length - 1) + ":";
+        idPrefix = domainName.charAt(0) + domainName.substr(Math.ceil(domainName.length / 2 - 1), domainName.length % 2 === 0 ? 2 : 1) + domainName.charAt(domainName.length - 1) + ":";
         
         obj = {
             baseURL,
@@ -36,8 +35,7 @@ domainName.charAt(domainName.length - 1) + ":";
         baseURL = url.split('/')[0] + "//" + url.split('?')[0].split('/')[2] || "unknown"
         
         domainName = url.split("?")[0].split("/")[2].split(":")[0] || "unknown"
-        idPrefix = domainName.charAt(0) + domainName.substr(Math.ceil(domainName.length / 2 - 1), domainName.length % 2 === 0 ? 2 : 1) + 
-domainName.charAt(domainName.length - 1) + ":";
+        idPrefix = domainName.charAt(0) + domainName.substr(Math.ceil(domainName.length / 2 - 1), domainName.length % 2 === 0 ? 2 : 1) + domainName.charAt(domainName.length - 1) + ":";
         
         if(queryString === undefined){return {result:"URL does not have any queries!"}}
         if(baseURL === undefined){return {result:"URL does not seem like an url!"}}
@@ -273,7 +271,7 @@ async function getMeta(url,type,id) {
     if(type === "movie"|| type === "series"){
         meta ={
              id: obj.idPrefix + streamID || "",
-             //id: getMeta.data.info.tmdb_id === undefined ? obj.idPrefix + streamID : "tmdb:"+getMeta.data.info.tmdb_id,
+             //id: getMeta.data.info.tmdb_id === undefined ? obj.idPrefix + streamID : "tmdb:"+getMeta.data.info.tmdb_id, // "tmdb:"+getMeta.data.info.tmdb_id || obj.idPrefix + streamID || "",
             type,
             name: getMeta.data.info.name === undefined ? "" : getMeta.data.info.name,
             poster: getMeta.data.info.cover_big || "",
